@@ -1,0 +1,19 @@
+{
+  "name": "apitelegram",
+  "version": "1.0.0",
+  "description": "telegram bot API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buianh1998/APITelegram.git"
+  },
+  "author": "buianh1998",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buianh1998/APITelegram/issues"
+  },
+  "homepage": "https://github.com/buianh1998/APITelegram#readme"
+}
