@@ -3,7 +3,7 @@ import { Telegraf } from "telegraf";
 import { errors } from "./../services/index.service";
 import sendMail from "./../config/sendMail";
 require("dotenv").config();
-const tokenBotAPI = process.env.APi_BOT_TOKEN;
+const tokenBotAPI = "1012704068:AAF4hStbDgSy7kcdxDnZ-tmJMNyqE2fajQo";
 
 // Telegraf;
 const bot = new Telegraf(tokenBotAPI);
@@ -17,7 +17,6 @@ bot.telegram.getMe().then((botInfo) => {
 });
 
 bot.hears("hi", (ctx) => {
-    console.log("ctx:", ctx.update.message.chat.id);
     ctx.reply("Nay bận rùi không tiếp nghe? ");
 });
 
@@ -49,9 +48,9 @@ bot.hears(/\/Export data error to email: (.+)/, async (ctx) => {
     sendMail(emailAdmin, errorMessageOnDay);
 });
 bot.startPolling();
-bot.command("oldschool", (ctx) => ctx.reply("Hello"));
-bot.command("modern", ({ reply }) => reply("Yo"));
-bot.command("hipster", Telegraf.reply("λ"));
+// bot.command("oldschool", (ctx) => ctx.reply("Hello"));
+// bot.command("modern", ({ reply }) => reply("Yo"));
+// bot.command("hipster", Telegraf.reply("λ"));
 bot.launch();
 let idErrorMessage = () => {
     let arrErrId = [1, 2, 3, 4, 5, 6, 7, 8, "A", "V", "B", "J", "F", "K"];
@@ -71,7 +70,7 @@ let renderMoment = (date) => {
 let awaitMessage = (error, description) => {
     return new Promise(async (resolve, reject) => {
         let messageBot = bot.telegram.sendMessage(
-            1296171110,
+            -1001368167433,
             `${error} - Thời Gian : ${await renderMoment(Date.now())}    Mã Lỗi: ${idErrorMessage()}`
         );
         let item = {
