@@ -24,9 +24,20 @@ let upload = multer({
     storage: storage,
 }).single("image");
 let getDataProduct = async (req, res) => {
+    let startTime = Number(Date.now());
     let page = req.query.page || 1;
     let getDataProduct = await product.getDataProduct(page);
+    for (let i = 0; i < 2500; i++) {
+        console.log(getDataProduct);
+    }
     res.json({ result: true, getDataProduct: getDataProduct.dataProduct });
+    let DateTime = Number(Date.now()) - startTime;
+    let seconds = Math.floor((DateTime / 1000) % 60);
+    if (seconds < 6) return;
+    return await helper.awaitMessage(
+        "Startby time is more than 5 seconds",
+        "Thời gian load dữ liệu product để hiển thị quá 5s yêu cầu dell kiểm tra lại"
+    );
 };
 let getProductById = async (req, res) => {
     try {
